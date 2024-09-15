@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploaded Files</title>
+</head>
+<body>
+  <h1>List of Uploaded Files</h1>
+
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Files</th>
+    </tr>
+    <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% user.files.forEach(file => { %>
+            <a href="/download/<%= file %>"><%= file %></a><br>
+          <% }) %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
